@@ -36,7 +36,7 @@ public class BossOfficeLoader : MonoBehaviour
     IEnumerator LoadLevel()
     {
         audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length * 2);
+        yield return new WaitForSeconds(audioSource.clip.length);
         SceneManager.LoadScene("BossOffice");
     }
 }
