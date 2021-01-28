@@ -7,6 +7,7 @@ public class GirlMovement : MonoBehaviour
     [SerializeField] float speed = 20;
     AudioSource audioSource;
     Animator animator;
+    Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
