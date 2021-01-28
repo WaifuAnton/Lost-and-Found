@@ -5,14 +5,12 @@ using UnityEngine;
 public class GirlMovement : MonoBehaviour
 {
     [SerializeField] float speed = 20;
-    Rigidbody2D rb2d;
     AudioSource audioSource;
     Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
     }
@@ -30,6 +28,10 @@ public class GirlMovement : MonoBehaviour
         movement *= speed;
         movement = Vector2.ClampMagnitude(movement, speed);
         transform.Translate(movement * Time.deltaTime);
+        if (movement.magnitude > 0 && !audioSource.isPlaying)
+            audioSource.Play();
+        else if (movement.magnitude == 0 && audioSource.isPlaying)
+            audioSource.Stop();
         animator.SetFloat("Speed", movement.magnitude);
     }
 }
