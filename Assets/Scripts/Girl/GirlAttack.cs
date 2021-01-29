@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-public class GirlAttack : MonoBehaviour
+public class GirlAttack : MonoBehaviour, IDamagable
 {
-    [SerializeField] Knife knifePrefab;
+    [SerializeField] Weapon weaponPrefab;
     [SerializeField] int health = 10;
     [SerializeField] UnityEvent OnDead;
 
@@ -21,8 +21,8 @@ public class GirlAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Knife knife = Instantiate(knifePrefab, transform.position, Quaternion.identity);
-            knife.SetUpDirection(transform.localScale.x < 0 ? true : false);
+            Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            weapon.SetUpDirection(transform.localScale.x < 0 ? true : false);
         }
     }
 
