@@ -11,8 +11,8 @@ public class Slime : Enemy
     SoundManager soundManager;
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
     Seeker seeker;
+    Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -20,28 +20,29 @@ public class Slime : Enemy
         base.Start();
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         seeker = GetComponent<Seeker>();
-        InvokeRepeating("UpdatePath", 0, .3f);        
+        rb2d = GetComponent<Rigidbody2D>();
+        InvokeRepeating("UpdatePath", 0, .5f);        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            CancelInvoke();
+            return;
+        }
         if (path == null)
             return;
         if (currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
             return;
-        }
-        else
-            reachedEndOfPath = false;
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - (Vector2)transform.position).normalized;
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb2d.position).normalized;
         if (direction.x < 0)
             transform.localScale = new Vector3(2, 2, 2);
         else if (direction.x > 0)
             transform.localScale = new Vector3(-2, 2, 2);
         transform.Translate(direction * speed * Time.deltaTime);
-        float distance = Vector2.Distance((Vector2)transform.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(rb2d.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
             currentWaypoint++;
     }
@@ -49,7 +50,7 @@ public class Slime : Enemy
     void UpdatePath()
     {
         if (seeker.IsDone())
-            seeker.StartPath((Vector2)transform.position, (Vector2)target.position, OnPathComplete);
+            seeker.StartPath(rb2d.position, (Vector2)target.position, OnPathComplete);
     }
 
     void OnPathComplete(Path p)

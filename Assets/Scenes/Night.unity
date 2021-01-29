@@ -667,7 +667,7 @@ MonoBehaviour:
   health: 1
   contactDamage: 1
   speed: 2
-  nextWaypointDistance: 0.5
+  nextWaypointDistance: 0.01
   target: {fileID: 1757848097}
 --- !u!114 &1284617039
 MonoBehaviour:
