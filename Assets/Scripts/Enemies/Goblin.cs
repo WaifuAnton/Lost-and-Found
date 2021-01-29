@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goblin : Enemy
 {
     [SerializeField] Weapon weaponPrefab;
+    Vector2 direction = Vector2.zero;
 
     // Update is called once per frame
     void Update()
@@ -12,14 +13,23 @@ public class Goblin : Enemy
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
-            Vector2 direction = collision.transform.position - transform.position;
+            direction = collision.transform.position - transform.position;
             direction = direction.normalized;
-            weapon.SetUpDirection(direction);
+            animator.SetTrigger("OnAttack");
         }
+    }
+
+    public void InstanciateBomb()
+    {
+        Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+        if (direction.x < 0)
+            transform.localScale = new Vector3(-3, 3, 3);
+        else if (direction.x > 0)
+            transform.localScale = new Vector3(3, 3, 3);
+        weapon.SetUpDirection(direction);
     }
 }
