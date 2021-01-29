@@ -1988,6 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa007d0295b269d44808734a4825dce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: BossOffice
   OnSceneLoading:
     m_PersistentCalls:
       m_Calls:

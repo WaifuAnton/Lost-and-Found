@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-public class BossOfficeLoader : MonoBehaviour
+public class Loader : MonoBehaviour
 {
     AudioSource audioSource;
+    [SerializeField] string sceneName;
     [SerializeField] UnityEvent OnSceneLoading;
 
     // Start is called before the first frame update
@@ -28,6 +29,9 @@ public class BossOfficeLoader : MonoBehaviour
             collision.GetComponent<GirlMovement>().enabled = false;
             collision.GetComponent<Animator>().enabled = false;
             collision.GetComponent<AudioSource>().enabled = false;
+            GirlAttack girl = collision.GetComponent<GirlAttack>();
+            if (girl != null)
+                girl.enabled = false;
             OnSceneLoading.Invoke();
             StartCoroutine(LoadLevel());
         }
@@ -37,6 +41,6 @@ public class BossOfficeLoader : MonoBehaviour
     {
         audioSource.Play();
         yield return new WaitForSeconds(audioSource.clip.length);
-        SceneManager.LoadScene("BossOffice");
+        SceneManager.LoadScene(sceneName);
     }
 }

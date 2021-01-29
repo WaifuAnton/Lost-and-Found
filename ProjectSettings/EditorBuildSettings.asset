@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Night.unity
     guid: 29ab676770ee7bf4eb5a7ab05082ba4e
+  - enabled: 1
+    path: Assets/Scenes/Castle.unity
+    guid: 6b31dd5a487ebea4484a3b4db4cd258c
   m_configObjects: {}
