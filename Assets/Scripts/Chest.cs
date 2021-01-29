@@ -25,7 +25,13 @@ public class Chest : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             animator.SetTrigger("OnUnlocked");
-            audioSource.Play();
+            if (!audioSource.isPlaying)
+                audioSource.Play();
         }
+    }
+
+    public void EnableChild()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }
