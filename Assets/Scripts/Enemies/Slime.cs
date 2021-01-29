@@ -62,9 +62,9 @@ public class Slime : Enemy
         }
     }
 
-    public override void OnDead()
+    public override void Die()
     {
         soundManager.PlayClip("Bubble");
-        base.OnDead();
+        base.Die();
     }
 }

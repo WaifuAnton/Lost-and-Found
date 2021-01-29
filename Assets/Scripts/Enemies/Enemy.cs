@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected int health = 1;
     [SerializeField] int contactDamage = 1;
+    [SerializeField] UnityEvent OnDead;
     Animator animator;
 
     // Start is called before the first frame update
@@ -31,8 +33,9 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("OnDead");
     }
 
-    public virtual void OnDead()
+    public virtual void Die()
     {
+        OnDead.Invoke();
         Destroy(gameObject);
     }
 }
