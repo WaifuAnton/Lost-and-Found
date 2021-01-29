@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Knife : Weapon
 {
-    // Update is called once per frame
-    //protected override void Update()
-    //{
-    //    transform.Translate(transform.up * speed * Time.deltaTime);
-    //}
-
     public override void SetUpDirection(Vector2 direction)
     {
         if (direction.x > 0)

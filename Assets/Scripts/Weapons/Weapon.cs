@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
     }
@@ -25,8 +25,8 @@ public class Weapon : MonoBehaviour
     {
         if (collision.gameObject.tag == target)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(damage);
+            IDamagable damagable = collision.gameObject.GetComponent<IDamagable>();
+            damagable.TakeDamage(damage);
         }
         Destroy(gameObject);
     }
