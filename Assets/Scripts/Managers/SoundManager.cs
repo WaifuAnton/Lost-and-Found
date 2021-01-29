@@ -16,6 +16,10 @@ public class SoundManager : MonoBehaviour
             throw new ArgumentException("Size of clips array must be the same as size of names");
         for (int i = 0; i < clipNames.Length; i++)
             audios.Add(clipNames[i], audioClips[i]);
+        int count = GameObject.FindGameObjectsWithTag("SoundManager").Length;
+        if (count > 1)
+            Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update

@@ -13,7 +13,7 @@ public class GirlAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
     }
 
     // Update is called once per frame
@@ -32,13 +32,6 @@ public class GirlAttack : MonoBehaviour
         if (health <= 0)
         {
             OnDead.Invoke();
-            //StartCoroutine(ReloadLevel());
         }
     }
-
-    //IEnumerator ReloadLevel()
-    //{
-    //    yield return new WaitForSeconds(soundManager.GetClipLength("Death"));
-    //    SceneManager.LoadScene("Night");
-    //}
 }
