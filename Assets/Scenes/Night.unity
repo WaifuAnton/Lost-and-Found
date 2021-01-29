@@ -284,7 +284,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &480948435
+--- !u!1 &663559100
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,22 +292,71 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 480948437}
-  - component: {fileID: 480948436}
+  - component: {fileID: 663559103}
+  - component: {fileID: 663559102}
+  - component: {fileID: 663559101}
+  - component: {fileID: 663559104}
   m_Layer: 0
-  m_Name: 32x32_PixelWeapons_22
+  m_Name: knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &480948436
+--- !u!60 &663559101
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663559100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.22, y: 0.24}
+    newSize: {x: 0.22, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.06871465, y: 0.09828915}
+      - {x: -0.029460236, y: 0.0019054706}
+      - {x: -0.046644874, y: 0.0027341258}
+      - {x: -0.061999466, y: -0.0018302076}
+      - {x: -0.05974917, y: -0.04557999}
+      - {x: -0.07054382, y: -0.05357407}
+      - {x: -0.10847886, y: -0.061907515}
+      - {x: -0.11027144, y: -0.08282971}
+      - {x: -0.10040267, y: -0.08726862}
+      - {x: -0.08688852, y: -0.08988506}
+      - {x: -0.075133294, y: -0.11849657}
+      - {x: -0.047629766, y: -0.11392666}
+      - {x: -0.060854603, y: -0.08017058}
+      - {x: -0.034749348, y: -0.07045574}
+      - {x: -0.005753159, y: -0.084005274}
+      - {x: 0.010078546, y: -0.06615321}
+      - {x: 0.0019863378, y: -0.04576236}
+      - {x: 0.0064635277, y: -0.040274803}
+      - {x: 0.08198617, y: 0.029610088}
+      - {x: 0.108975284, y: 0.074168816}
+      - {x: 0.10860625, y: 0.11239044}
+      - {x: 0.093191, y: 0.12140012}
+--- !u!212 &663559102
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480948435}
+  m_GameObject: {fileID: 663559100}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -352,20 +401,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &480948437
+--- !u!4 &663559103
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480948435}
+  m_GameObject: {fileID: 663559100}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 11.217077, y: -2.1036203, z: 0}
+  m_LocalPosition: {x: 11.045896, y: -2.122611, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!114 &663559104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663559100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dc9c4551342f2449dd2396e0c06429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 1
 --- !u!1 &1007263637
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,9 +522,10 @@ GameObject:
   - component: {fileID: 1284617036}
   - component: {fileID: 1284617035}
   - component: {fileID: 1284617034}
+  - component: {fileID: 1284617037}
   m_Layer: 0
   m_Name: slime_idle_anim_strip_5_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -550,6 +614,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1284617037
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284617033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.07
 --- !u!1 &1412877583
 GameObject:
   m_ObjectHideFlags: 0
