@@ -8,7 +8,6 @@ public class Slime : Enemy
     [SerializeField] float speed = 3.5f;
     [SerializeField] float nextWaypointDistance = 1.3f;
     [SerializeField] Transform target;
-    SoundManager soundManager;
     Path path;
     int currentWaypoint = 0;
     Seeker seeker;
@@ -18,7 +17,6 @@ public class Slime : Enemy
     protected override void Start()
     {
         base.Start();
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0, .5f);        
@@ -50,7 +48,7 @@ public class Slime : Enemy
 
     void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (seeker.IsDone() && target != null)
             seeker.StartPath(rb2d.position, (Vector2)target.position, OnPathComplete);
     }
 
@@ -61,11 +59,5 @@ public class Slime : Enemy
             path = p;
             currentWaypoint = 0;
         }
-    }
-
-    public override void Die()
-    {
-        soundManager.PlayClip("Bubble");
-        base.Die();
     }
 }

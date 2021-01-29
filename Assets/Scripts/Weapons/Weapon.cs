@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     protected Vector2 direction = Vector2.zero;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         
     }

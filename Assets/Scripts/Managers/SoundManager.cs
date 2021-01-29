@@ -33,8 +33,7 @@ public class SoundManager : MonoBehaviour
     public void PlayClip(string soundName)
     {
         audioSource.clip = audios[soundName];
-        if (!audioSource.isPlaying)
-            audioSource.Play();
+        audioSource.Play();
     }
 
     public float GetClipLength(string soundName)

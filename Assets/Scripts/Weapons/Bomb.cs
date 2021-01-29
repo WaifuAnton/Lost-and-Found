@@ -5,7 +5,12 @@ using UnityEngine.Events;
 
 public class Bomb : Weapon
 {
-    [SerializeField] UnityEvent OnDestroy;
+    SoundManager soundManager;
+
+    protected override void Start()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+    }
 
     public override void SetUpDirection(Vector2 direction)
     {
@@ -16,7 +21,7 @@ public class Bomb : Weapon
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        OnDestroy.Invoke();
+        soundManager.PlayClip("Explosion");
         base.OnCollisionEnter2D(collision);
     }
 }
