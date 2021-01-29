@@ -22,7 +22,7 @@ public class GirlAttack : MonoBehaviour, IDamagable
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
-            weapon.SetUpDirection(transform.localScale.x < 0 ? true : false);
+            weapon.SetUpDirection(transform.localScale.x < 0 ? transform.right : -transform.right);
         }
     }
 
@@ -32,6 +32,7 @@ public class GirlAttack : MonoBehaviour, IDamagable
         if (health <= 0)
         {
             OnDead.Invoke();
+            Destroy(gameObject);
         }
     }
 }

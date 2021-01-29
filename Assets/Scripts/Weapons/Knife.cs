@@ -5,19 +5,23 @@ using UnityEngine;
 public class Knife : Weapon
 {
     // Update is called once per frame
-    protected override void Update()
-    {
-        transform.Translate(transform.up * speed * Time.deltaTime);
-    }
+    //protected override void Update()
+    //{
+    //    transform.Translate(transform.up * speed * Time.deltaTime);
+    //}
 
-    public override void SetUpDirection(bool isRight)
+    public override void SetUpDirection(Vector2 direction)
     {
-        if (isRight)
+        if (direction.x > 0)
+        {
             transform.rotation = Quaternion.Euler(0, 0, -45);
+            this.direction = (new Vector2(1, 0) + new Vector2(0, 1)).normalized;
+        }
         else
         {
             transform.localScale = new Vector3(-1, 1, 1);
             transform.rotation = Quaternion.Euler(0, 0, 45);
+            this.direction = (new Vector2(-1, 0) + new Vector2(0, 1)).normalized;
         }
     }
 }

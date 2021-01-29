@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected float speed = 10;
     [SerializeField] int damage = 1;
     [SerializeField] string target;
-    bool isRight = true;
+    protected Vector2 direction = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (isRight)
-            transform.Translate(transform.right * speed * Time.deltaTime);
-        else
-            transform.Translate(-transform.right * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,14 +36,10 @@ public class Weapon : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual void SetUpDirection(bool isRight)
+    public virtual void SetUpDirection(Vector2 direction)
     {
-        if (isRight)
-            transform.rotation = Quaternion.Euler(0, 0, -45);
-        else
-        {
+        if (direction.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-            transform.rotation = Quaternion.Euler(0, 0, 45);
-        }
+        this.direction = direction.normalized;
     }
 }
