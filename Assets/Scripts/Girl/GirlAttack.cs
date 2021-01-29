@@ -9,11 +9,12 @@ public class GirlAttack : MonoBehaviour
     [SerializeField] Knife knifePrefab;
     [SerializeField] int health = 10;
     [SerializeField] UnityEvent OnDead;
+    SoundManager soundManager;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
@@ -38,7 +39,8 @@ public class GirlAttack : MonoBehaviour
 
     IEnumerator ReloadLevel()
     {
-        yield return new WaitForSeconds(1);
+        soundManager.PlayClip("Death");
+        yield return new WaitForSeconds(soundManager.GetClipLength("Death"));
         SceneManager.LoadScene("Night");
     }
 }
