@@ -24,7 +24,7 @@ public class Knife : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.Damage(damage);
+            enemy.TakeDamage(damage);
         }
         Destroy(gameObject);
     }

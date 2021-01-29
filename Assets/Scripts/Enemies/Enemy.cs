@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] int health = 1;
+    [SerializeField] int contactDamage = 1;
     Animator animator;
 
     // Start is called before the first frame update
@@ -19,7 +20,16 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void Damage(int points)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GirlAttack girl = collision.gameObject.GetComponent<GirlAttack>();
+            girl.TakeDamage(contactDamage);
+        }
+    }
+
+    public void TakeDamage(int points)
     {
         health -= points;
         animator.SetTrigger("OnDamaged");

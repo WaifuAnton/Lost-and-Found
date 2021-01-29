@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossOffice.unity
     guid: f4998d0cbb6cd8a44943d601fd828334
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 42f90d28c019a084a98374122e226a68
+  - enabled: 1
+    path: Assets/Scenes/Night.unity
+    guid: 29ab676770ee7bf4eb5a7ab05082ba4e
   m_configObjects: {}
