@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected int health = 1;
     [SerializeField] int contactDamage = 1;
     [SerializeField] UnityEvent OnDead;
-    Animator animator;
+    protected Animator animator;
 
     // Start is called before the first frame update
     protected virtual void Start()

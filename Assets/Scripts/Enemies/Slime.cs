@@ -42,6 +42,7 @@ public class Slime : Enemy
         else if (direction.x > 0)
             transform.localScale = new Vector3(-2, 2, 2);
         transform.Translate(direction * speed * Time.deltaTime);
+        animator.SetFloat("Speed", direction.magnitude * speed);
         float distance = Vector2.Distance(rb2d.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance)
             currentWaypoint++;

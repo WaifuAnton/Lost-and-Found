@@ -18,7 +18,10 @@ public class NightEnemyManager : MonoBehaviour
     void Update()
     {
         if (totalEnemies == 0)
+        {
             OnEnemiesDestroyed.Invoke();
+            Destroy(gameObject);
+        } 
     }
 
     public void DecreaseEnemies()
