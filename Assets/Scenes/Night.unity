@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239725705}
   - component: {fileID: 239725706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: houses_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007263639}
   - component: {fileID: 1007263638}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: houses_41 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,6 +544,7 @@ GameObject:
   - component: {fileID: 1284617034}
   - component: {fileID: 1284617037}
   - component: {fileID: 1284617038}
+  - component: {fileID: 1284617039}
   m_Layer: 0
   m_Name: slime
   m_TagString: Enemy
@@ -665,6 +666,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   contactDamage: 1
+  speed: 2
+  nextWaypointDistance: 0.5
+  target: {fileID: 1757848097}
+--- !u!114 &1284617039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284617033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1 &1412877583
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412877584}
   - component: {fileID: 1412877585}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,6 +1249,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670500252}
   m_CullTransparentMesh: 0
+--- !u!1 &1700353875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700353876}
+  - component: {fileID: 1700353877}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700353876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700353875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700353877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700353875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAQIewJEI3xUwIAAPcEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk3GBjImvbUOIT0kMKGZXHwR1hprkCWPPsLX8N+7km3s0ukJ8fbt6u3blc+ES1NDbpVeaM5eFQPyfUT8mXwb9cEXONCtkmt+go7zyZktPYkGzju1XCEe+zSjKrCa5z/kVnhyhKCTvFC6mrMtpMpYg3BBhQEMaWV9tkToPCIH/Ll79ClHPI0Tfzrh6TEaXfCYg7Sge2pH7GgNy8lc0KoG5iX35FnHnjY0ic20jOh+7KsrIbhptRB7rEOvKa2Nw06QwDjF3oKA+H6CQAl8W1qvdJi+LAoDtpWl6fGJazSpqUt+qsa5ippdo+2LCudviqPxNAhrqr7+Q7iLQ7jQqnrpLo4jf4kteb57p8ecGjvwdgg/DbQHj/ZU7OhGwGcJ8k0ttHKSYdBq51OdgfFT//faW1pCvuvxRuoN6Or/T8j3cAntH1LBq00wf9oAa6GC5WH+oHE8v1Bw2A7TlkDUq/gw8Jtuh2vUBp65NhZDbZfSy9sopz2VzINnvhtnU6UlBLgVXYOkwh5XWMbezvAmNrj2JvJM/YNpL29j3Tu4SQlwz4+im9BK7a/DMqXav4Ipl84KLqEX7QNv6FOqpGxWbOhJl7Z2uqD5IG3rOPt7tUgyTRIWs8dowmbRJH64K2abOGFRPkum0UMyfSBh97jEPqlYNUJbe3Bqsi8ucc+678hooWkd1p1pul/wU6UGlnNZqHWuAeSyqXAVDhovwafJ5oyjQWuwlsswb3LOiFD5Dlh2LZSFTucHq2nWV8lIzb+U9UhG0vDhyMiFXP4AUEsDBBQAAAgIAAAQIexXU5aVbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM01VFQSi9KLMgoBooYgjilmSkgdrSSuYm5eYphiqWBcYqFgbGhqW6aRZKheYpBsoW5iYGpuYmpUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAQIewJEI3xUwIAAPcEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAQIexXU5aVbQAAAHgAAAAJACQAAAAAAAAAAAAAAKACAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWAMAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 0
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 4
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
 --- !u!1 &1757848091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,7 +1531,7 @@ Transform:
   m_GameObject: {fileID: 1757848091}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.37, y: -2.054, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 211794460}
   m_Father: {fileID: 0}
@@ -1458,7 +1576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799053975}
   - component: {fileID: 1799053974}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: houses_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
