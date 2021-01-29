@@ -9,18 +9,12 @@ public class Enemy : MonoBehaviour
     Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -37,7 +31,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("OnDead");
     }
 
-    public void OnDead()
+    public virtual void OnDead()
     {
         Destroy(gameObject);
     }

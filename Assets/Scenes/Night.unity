@@ -660,7 +660,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1284617033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2858e531924cd448ab81513845462ae, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe54fd57e80857499d4c62fdb257f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
@@ -875,8 +875,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipNames:
   - Death
+  - Bubble
   audioClips:
   - {fileID: 8300000, guid: 3d7c8fe6eaf528647a19c496472986c0, type: 3}
+  - {fileID: 8300000, guid: 6d78f559b11a30e459a7ad9fb7030843, type: 3}
 --- !u!82 &1499206012
 AudioSource:
   m_ObjectHideFlags: 0
