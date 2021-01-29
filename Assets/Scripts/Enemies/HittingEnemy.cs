@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Slime : Enemy
+public class HittingEnemy : Enemy
 {
     [SerializeField] float speed = 3.5f;
     [SerializeField] float nextWaypointDistance = 1.3f;
     [SerializeField] Transform target;
+    [SerializeField] bool isReversed = true;
     Path path;
     int currentWaypoint = 0;
     Seeker seeker;
@@ -36,9 +37,9 @@ public class Slime : Enemy
             return;
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb2d.position).normalized;
         if (direction.x < 0)
-            transform.localScale = new Vector3(2, 2, 2);
+            transform.localScale = new Vector3(isReversed ? 2 : -2, 2, 2);
         else if (direction.x > 0)
-            transform.localScale = new Vector3(-2, 2, 2);
+            transform.localScale = new Vector3(isReversed ? -2 : 2, 2, 2);
         transform.Translate(direction * speed * Time.deltaTime);
         animator.SetFloat("Speed", direction.magnitude * speed);
         float distance = Vector2.Distance(rb2d.position, path.vectorPath[currentWaypoint]);

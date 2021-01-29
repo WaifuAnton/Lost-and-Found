@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && health > 0)
         {
             GirlAttack girl = collision.gameObject.GetComponent<GirlAttack>();
             girl.TakeDamage(contactDamage);
@@ -33,9 +33,13 @@ public class Enemy : MonoBehaviour, IDamagable
             animator.SetTrigger("OnDead");
     }
 
-    public void Die()
+    public void Dying()
     {
         OnDead.Invoke();
+    }
+
+    public void Die()
+    {
         Destroy(gameObject);
     }
 }

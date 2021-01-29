@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip[] audioClips;
     Dictionary<string, AudioClip> audios = new Dictionary<string, AudioClip>();
     AudioSource audioSource;
+    public float delay { get; set; }
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class SoundManager : MonoBehaviour
     public void PlayClip(string soundName)
     {
         audioSource.clip = audios[soundName];
-        audioSource.Play();
+        audioSource.PlayDelayed(delay);
     }
 
     public float GetClipLength(string soundName)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestTest : MonoBehaviour
+public class Chest : MonoBehaviour
 {
     AudioSource audioSource;
     Animator animator;
@@ -12,14 +12,20 @@ public class ChestTest : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        animator.SetTrigger("OnUnlocked");
-        if (!audioSource.isPlaying)
-            audioSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            animator.SetTrigger("OnUnlocked");
+            audioSource.Play();
+        }
     }
 }

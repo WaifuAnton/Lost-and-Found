@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goblin : Enemy
+public class ThrowingEnemy : Enemy
 {
     [SerializeField] Weapon weaponPrefab;
     Vector2 direction = Vector2.zero;
@@ -23,7 +23,7 @@ public class Goblin : Enemy
         }
     }
 
-    public void InstanciateBomb()
+    public void InstanciateWeapon()
     {
         Weapon weapon = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
         if (direction.x < 0)
