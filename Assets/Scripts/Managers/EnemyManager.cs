@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class NightEnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     [SerializeField] UnityEvent OnEnemiesDestroyed;
     int totalEnemies;

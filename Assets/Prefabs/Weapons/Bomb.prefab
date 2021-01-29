@@ -159,4 +159,16 @@ MonoBehaviour:
   target: Player
   OnDestroy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4409346843868588231, guid: de7f13724e47c874aa8c9f188a65d53f,
+          type: 3}
+        m_MethodName: PlayClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Explosion
+          m_BoolArgument: 0
+        m_CallState: 2

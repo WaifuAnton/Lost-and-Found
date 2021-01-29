@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour, IDamagable
             animator.SetTrigger("OnDead");
     }
 
-    public virtual void Die()
+    public void Die()
     {
         OnDead.Invoke();
         Destroy(gameObject);
