@@ -18,4 +18,30 @@ public class Knife : MonoBehaviour
     {
         transform.Translate(transform.up * speed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.Damage(damage);
+        }
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SetUpDirection(bool isRight)
+    {
+        if (isRight)
+            transform.rotation = Quaternion.Euler(0, 0, -45);
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+    }
 }
