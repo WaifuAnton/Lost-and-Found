@@ -35,10 +35,6 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.clip = audios[soundName];
         audioSource.PlayDelayed(delay);
-    }
-
-    public float GetClipLength(string soundName)
-    {
-        return audios[soundName].length;
+        delay = 0;
     }
 }

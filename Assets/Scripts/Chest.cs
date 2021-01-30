@@ -11,7 +11,7 @@ public class Chest : MonoBehaviour
     private void OnEnable()
     {
         girl = GameObject.FindGameObjectWithTag("Player").transform;
-        transform.position = new Vector3(girl.position.x - 5, 0, 0);
+        transform.position = new Vector3(girl.position.x - 5, -2, 0);
     }
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class Chest : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

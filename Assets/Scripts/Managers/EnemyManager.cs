@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Debug.Log(totalEnemies);
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class EnemyManager : MonoBehaviour
         {
             OnEnemiesDestroyed.Invoke();
             Destroy(gameObject);
-        } 
+        }
+        Debug.Log(totalEnemies);
     }
 
     public void DecreaseEnemies()
