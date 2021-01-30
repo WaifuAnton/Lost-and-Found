@@ -6,6 +6,13 @@ public class Chest : MonoBehaviour
 {
     AudioSource audioSource;
     Animator animator;
+    Transform girl;
+
+    private void OnEnable()
+    {
+        girl = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.position = new Vector3(girl.position.x - 5, 0, 0);
+    }
 
     // Start is called before the first frame update
     void Start()

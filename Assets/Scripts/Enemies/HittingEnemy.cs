@@ -27,7 +27,7 @@ public class HittingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0 || !isMoving)
+        if (_health <= 0 || !isMoving)
         {
             CancelInvoke();
             return;
@@ -62,15 +62,4 @@ public class HittingEnemy : Enemy
             currentWaypoint = 0;
         }
     }
-
-    //public void KeepMoving()
-    //{
-    //    isMoving = true;
-    //}
-
-    //public void StopMoving()
-    //{
-    //    isMoving = false;
-    //    seeker.e
-    //}
 }

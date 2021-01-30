@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    [SerializeField] protected int health = 1;
+    [SerializeField] protected int _health = 1;
     [SerializeField] int contactDamage = 1;
     [SerializeField] UnityEvent OnDead;
     protected Animator animator;
+
+    public int health { get { return _health; } }
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -18,7 +20,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && health > 0)
+        if (collision.gameObject.tag == "Player" && _health > 0)
         {
             GirlAttack girl = collision.gameObject.GetComponent<GirlAttack>();
             girl.TakeDamage(contactDamage);
@@ -27,9 +29,9 @@ public class Enemy : MonoBehaviour, IDamagable
 
     public void TakeDamage(int points)
     {
-        health -= points;
+        _health -= points;
         animator.SetTrigger("OnDamaged");
-        if (health <= 0)
+        if (_health <= 0)
             animator.SetTrigger("OnDead");
     }
 

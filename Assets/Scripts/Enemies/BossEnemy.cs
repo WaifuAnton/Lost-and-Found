@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
 
-public class BossPunch : MonoBehaviour
+public class BossEnemy : MonoBehaviour
 {
     [SerializeField] Transform target;
-    //[SerializeField] UnityEvent onTargetReached;
-    //[SerializeField] UnityEvent onTargetNotReached;
+    [SerializeField] float distance = 0.5f;
     Animator animator;
     Seeker seeker;
 
@@ -22,7 +21,7 @@ public class BossPunch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null || Vector2.Distance(transform.position, target.position) >= 0.4f)
+        if (target == null || Vector2.Distance(transform.position, target.position) >= distance)
         {
             seeker.enabled = true;
             animator.SetBool("IsAttacking", false);
