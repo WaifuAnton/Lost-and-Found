@@ -35,6 +35,6 @@ public class ThrowingEnemy : Enemy
 
     public void SetUpBossHealth(int health)
     {
-        this._health = health;
+        this.health = health;
     }
 }

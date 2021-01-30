@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 585607063}
   - component: {fileID: 585607064}
   - component: {fileID: 585607065}
+  - component: {fileID: 585607066}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Enemy
@@ -632,7 +633,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11742009, y: -0.03622532}
+  m_Offset: {x: -0.14, y: -0.008886695}
   m_Size: {x: 0.2151598, y: 0.54754937}
   m_Direction: 0
 --- !u!50 &585607062
@@ -696,11 +697,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe54fd57e80857499d4c62fdb257f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   contactDamage: 1
   OnDead:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 585607066}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 585607065}
+        m_MethodName: NextIteration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 585607064}
         m_MethodName: set_enabled
         m_Mode: 6
@@ -711,39 +734,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 585607062}
-        m_MethodName: Sleep
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 585607061}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 850805789}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
   speed: 1
   nextWaypointDistance: 0.01
@@ -762,6 +752,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 823124166}
+  distance: 0.7
+--- !u!114 &585607066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585607057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e702c72d5a59d724a8ad2dfa9ea16859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  contactDamage: 1
+  OnDead:
+    m_PersistentCalls:
+      m_Calls: []
+  weaponPrefab: {fileID: 0}
 --- !u!4 &823124166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8872716970474822752, guid: 92cbc805130386c4b82472bbbaa38451,

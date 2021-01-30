@@ -27,7 +27,7 @@ public class HittingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (_health <= 0 || !isMoving)
+        if (health <= 0 || !isMoving)
         {
             CancelInvoke();
             return;

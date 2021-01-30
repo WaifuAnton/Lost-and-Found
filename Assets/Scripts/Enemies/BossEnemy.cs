@@ -10,11 +10,13 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] float distance = 0.5f;
     Animator animator;
     Seeker seeker;
+    int iteration = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetInteger("Iteration", iteration);
         seeker = GetComponent<Seeker>();
     }
 
@@ -31,5 +33,10 @@ public class BossEnemy : MonoBehaviour
             seeker.enabled = false;
             animator.SetBool("IsAttacking", true);
         }
+    }
+
+    public void NextIteration()
+    {
+        iteration++;
     }
 }

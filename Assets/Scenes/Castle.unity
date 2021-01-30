@@ -5090,6 +5090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928897730225420139, guid: a43f231de23ec2a489da21bdd3758188,
         type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928897730225420139, guid: a43f231de23ec2a489da21bdd3758188,
+        type: 3}
       propertyPath: OnDead.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
