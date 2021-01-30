@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip[] audioClips;
     Dictionary<string, AudioClip> audios = new Dictionary<string, AudioClip>();
     AudioSource audioSource;
+    
     public float delay { get; set; }
 
     private void Awake()

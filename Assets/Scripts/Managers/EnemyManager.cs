@@ -2,32 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] UnityEvent OnEnemiesDestroyed;
-    int totalEnemies;
+    public static EnemyManager current;
+
+    public event Action onEnemiesDestroyed;
+    AudioSource audioSource;
+    bool played = false;
+
+    private void Awake()
+    {
+        current = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        //Debug.Log(totalEnemies);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (played)
+            return;
+        int totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (totalEnemies == 0)
         {
-            OnEnemiesDestroyed.Invoke();
-            Destroy(gameObject);
+            onEnemiesDestroyed?.Invoke();
+            audioSource.Play();
+            played = true;
         }
-        //Debug.Log(totalEnemies);
-    }
-
-    public void DecreaseEnemies()
-    {
-        totalEnemies--;
     }
 }
