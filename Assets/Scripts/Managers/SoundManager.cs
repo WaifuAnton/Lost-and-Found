@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
             throw new ArgumentException("Size of clips array must be the same as size of names");
         for (int i = 0; i < clipNames.Length; i++)
             audios.Add(clipNames[i], audioClips[i]);
+        
     }
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Bomb.current != null)
+            Bomb.current.onBombCreated += OnBombCreated;
     }
 
     public void PlayClip(string soundName)
@@ -36,5 +38,10 @@ public class SoundManager : MonoBehaviour
         audioSource.clip = audios[soundName];
         audioSource.PlayDelayed(delay);
         delay = 0;
+    }
+
+    public void OnBombCreated()
+    {
+        Bomb.current.onBombDestroyed += PlayClip;
     }
 }

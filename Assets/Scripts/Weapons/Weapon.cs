@@ -8,11 +8,18 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected int damage = 1;
     [SerializeField] protected string target;
     protected Vector2 direction = Vector2.zero;
+    protected bool justCreated = false;
+
+    private void Start()
+    {
+        justCreated = true;
+    }
 
     // Update is called once per frame
     protected virtual void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
+        justCreated = false;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
