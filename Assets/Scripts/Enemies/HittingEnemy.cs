@@ -16,9 +16,8 @@ public class HittingEnemy : Enemy
     bool isMoving = true;
 
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         seeker = GetComponent<Seeker>();
         rb2d = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0, .5f);        
@@ -27,7 +26,7 @@ public class HittingEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0 || !isMoving)
+        if (_health <= 0 || !isMoving)
         {
             CancelInvoke();
             return;

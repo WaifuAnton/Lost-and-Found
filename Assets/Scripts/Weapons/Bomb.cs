@@ -7,7 +7,7 @@ public class Bomb : Weapon
 {
     SoundManager soundManager;
 
-    protected override void Start()
+    void Start()
     {
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }

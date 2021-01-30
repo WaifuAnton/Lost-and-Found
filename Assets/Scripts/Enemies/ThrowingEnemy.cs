@@ -32,9 +32,4 @@ public class ThrowingEnemy : Enemy
             transform.localScale = new Vector3(3, 3, 3);
         weapon.SetUpDirection(direction);
     }
-
-    public void SetUpBossHealth(int health)
-    {
-        this.health = health;
-    }
 }

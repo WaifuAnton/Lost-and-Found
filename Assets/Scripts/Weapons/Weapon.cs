@@ -5,18 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] protected float speed = 10;
-    [SerializeField] int damage = 1;
-    [SerializeField] string target;
+    [SerializeField] protected int damage = 1;
+    [SerializeField] protected string target;
     protected Vector2 direction = Vector2.zero;
 
-    // Start is called before the first frame update
-    protected virtual void Start()
-    {
-        
-    }
-
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         transform.Translate(direction * speed * Time.deltaTime);
     }
