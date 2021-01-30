@@ -68,9 +68,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: OnDead
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: Iteration
-    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3324769878274174250}
   m_Solo: 0
