@@ -10,7 +10,6 @@ public class EnemyManager : MonoBehaviour
 
     public event Action onEnemiesDestroyed;
     AudioSource audioSource;
-    bool played = false;
 
     private void Awake()
     {
@@ -26,14 +25,12 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (played)
-            return;
         int totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (totalEnemies == 0)
         {
             onEnemiesDestroyed?.Invoke();
             audioSource.Play();
-            played = true;
+            enabled = false;
         }
     }
 }

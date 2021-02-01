@@ -5,13 +5,12 @@ using UnityEngine;
 public class Doors : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    AudioSource audioSource;
     Behaviour[] components;
-    bool isDone = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        EnemyManager.current.onEnemiesDestroyed += OnEnemiesDestroyed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
         components = GetComponents<Behaviour>();
@@ -26,11 +25,7 @@ public class Doors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDone)
-            return;
-        int totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (totalEnemies == 0)
-            EnemyManager.current.onEnemiesDestroyed += OnEnemiesDestroyed;
+
     }
 
     public void OnEnemiesDestroyed()
